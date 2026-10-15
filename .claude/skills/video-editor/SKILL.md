@@ -26,7 +26,7 @@ Skip only a question she already answered for this same video in this conversati
 ## Rule 3: Transcribe, remove retakes, remove dead air
 1. Transcribe with word timestamps:
    `python3 .claude/skills/video-editor/scripts/transcribe.py <work-copy> <work-folder>/transcript.json`
-   (Writes every word with start/end times, plus `transcript.txt` you can read.) The default model is `small`; use `medium` if accuracy matters and time allows.
+   (Writes every word with start/end times, plus `transcript.txt` you can read.) The first run downloads the Whisper model from huggingface.co. If that site is blocked (as in Claude's cloud sessions with limited network), say so and ask Grace to allow `huggingface.co` or to run the edit on her own computer. Never guess timestamps. The default model is `small`; use `medium` if accuracy matters and time allows.
 2. **Retakes:** wherever she restarts a sentence (repeated opening words, a false start, a trailing-off sentence followed by a cleaner version) or says "let's redo that", "let me start over", "one more time", "cut that", keep only the **best take**, usually the last complete and fluent one. Also remove the redo phrase itself.
 3. **Pauses:** cut any silence **longer than 0.5 s** between words. Leave about 0.1 to 0.15 s of breathing room on each side of a cut so it doesn't sound clipped.
 4. Build a keep-list of segments and show Grace a short summary ("removed 3 retakes, 14 pauses, 42 s → 31 s") before the final export.
@@ -47,7 +47,9 @@ Check in this order:
 - **Fonts:** **Playfair Display** for headlines, titles and hook text (700, italic for emphasis); **DM Sans** for captions and small text (500). Both are free Google Fonts.
 - **Caption style:** DM Sans 500, cream text, the active word in gold, a soft near-black shadow or translucent dark pill behind it so it reads on any footage. Sentence case. Max about 3 to 5 words per line, 2 lines. Keep it inside the safe zone (for 9:16, bottom ~20% and right edge clear of TikTok/IG buttons; captions sit around 60 to 70% height).
 - **Voice/tone:** professional, calm, expert (she works in critical minerals supply chain), elegant rather than loud. No emoji spam or meme effects unless she asks.
-- **Name tag:** "Grace Akinyi" in Playfair Display, gold rule underneath.
+- **Name tag:** "Grace Akinyi" in Playfair Display (top-left), a short gold rule underneath, then "CRITICAL MINERALS · SUPPLY CHAIN" in small gold DM Sans with wide letter spacing.
+- **Approved look (test clip, 2026-10-15):** `assets/brand-captions-9x16.ass` holds the ready-made caption styles for 1080×1920. Captions are cream DM Sans Medium, size 92, bottom-center about 620 px up, with a soft shadow. The 1 to 2 key words per line switch to gold Playfair Display bold italic: `{\c&H004CA8C9\fnPlayfair Display\i1\b1}key words{\r}`. Add a quick 104% pop on each line. Burn in with `ass=captions.ass:fontsdir=<fonts folder>`. The fonts must be installed (free from Google Fonts).
+- **Fonts:** if they're missing, download PlayfairDisplay and DMSans from `github.com/google/fonts` (`ofl/playfairdisplay`, `ofl/dmsans`).
 
 ## Rule 6: Format and quality
 - **Reels / TikTok / Shorts:** vertical **9:16, 1080×1920**. Reframe wide footage by keeping her face centered, never by squashing.

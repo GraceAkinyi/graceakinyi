@@ -1,0 +1,13 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,DM Sans Medium,92,&H00ECF2F5,&H00ECF2F5,&H00000000,&H960A0A0A,0,0,0,0,100,100,0,0,1,0,6,2,90,180,620,1
+Style: Name,Playfair Display,64,&H00ECF2F5,&H00ECF2F5,&H00000000,&H00000000,1,0,0,0,100,100,1,0,1,0,3,7,90,90,170,1
+Style: Kicker,DM Sans Medium,34,&H004CA8C9,&H004CA8C9,&H00000000,&H00000000,0,0,0,0,100,100,6,0,1,0,0,7,92,90,290,1
+
+[Events]
