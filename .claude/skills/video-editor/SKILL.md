@@ -51,6 +51,13 @@ Check in this order:
 - **Approved look (test clip, 2026-10-15):** `assets/brand-captions-9x16.ass` holds the ready-made caption styles for 1080×1920. Captions are cream DM Sans Medium, size 92, bottom-center about 620 px up, with a soft shadow. The 1 to 2 key words per line switch to gold Playfair Display bold italic: `{\c&H004CA8C9\fnPlayfair Display\i1\b1}key words{\r}`. Add a quick 104% pop on each line. Burn in with `ass=captions.ass:fontsdir=<fonts folder>`. The fonts must be installed (free from Google Fonts).
 - **Fonts:** if they're missing, download PlayfairDisplay and DMSans from `github.com/google/fonts` (`ofl/playfairdisplay`, `ofl/dmsans`).
 
+### Lessons from real footage
+- **Never let captions cover the face or mouth.** In selfie Reels her face sits low in the frame, so put captions around 330 px up from the bottom (MarginV 330), on the shirt and still above Instagram's bottom buttons. Always check still frames before exporting.
+- **Busy backgrounds** (patterned shirts, flags): use the boxed caption style, `BorderStyle 3`, outline 18, box `&H700A0A0A` (translucent near-black).
+- **Light walls behind the name tag:** give the name and the small gold title line a stronger dark shadow so they stay readable.
+- **End card for "Follow":** freeze the last frame, blur and darken it, then show "Follow" in gold Playfair italic, "for more" in DM Sans, a gold rule, and "GRACE AKINYI" in small gold text. Fade the audio out under it.
+- **Without Whisper:** if transcription is blocked, ask Grace to type her exact words and time each phrase from the gaps in her speech (`silencedetect` plus loudness dips). Tell her the timing is approximate.
+
 ## Rule 6: Format and quality
 - **Reels / TikTok / Shorts:** vertical **9:16, 1080×1920**. Reframe wide footage by keeping her face centered, never by squashing.
 - **YouTube:** wide **16:9, 1920×1080** (or match a 4K source at 3840×2160).
