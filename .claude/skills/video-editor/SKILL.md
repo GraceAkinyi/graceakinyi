@@ -64,7 +64,7 @@ Use these patterns whenever she wants "captions + graphics". Ask before going wi
 **Hook (first second):**
 - Put big text on screen from frame 1, before she finishes the first sentence.
 - Hook types that worked: a bold claim ("I hired 4 employees this month… and they're not human"), a relatable "___ be like:" setup, and a contrarian truth ("The best relationships *don't* talk about the past").
-- For her topic: "Your phone is hiding 8 grams of cobalt", "Nobody talks about where your EV battery comes from".
+- For her topic: "Your phone is hiding a metal most people have never heard of" (check any number or fact with Grace before putting it on screen), "Nobody talks about where your EV battery comes from".
 
 **Captions:**
 - Show 1 to 3 words at a time, changing about every 0.4 to 0.6 s, so the screen always moves even when the shot doesn't.
