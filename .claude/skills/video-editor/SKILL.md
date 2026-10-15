@@ -91,6 +91,15 @@ Use these patterns whenever she wants "captions + graphics". Ask before going wi
 
 **Sound:** voice loud and clear (around -14 LUFS). If there's music, keep it quiet under the voice.
 
+### Speed and delivery lessons (2026-10-15)
+- **Cut first, style second.** Cut each kept segment with its own fast FFmpeg call (`-ss` before `-i`, `-preset veryfast -crf 10`), join them with the concat demuxer, then do ONE styling pass. Never reuse `[0:v]` in many `trim` branches; it decodes the whole video again for every branch.
+- **Blur at low resolution:** `scale=270:480,boxblur=10:3,scale=1080:1920` looks the same and is about 16× faster.
+- **Never loop a still image with `-loop 1 -i mask.png`.** It never ends. Use `movie=mask.png,loop=-1:1:0,fps=30` and `overlay=...:shortest=1`.
+- Test any new filter graph on 3 seconds before the full render. Tell Grace the real time estimate, and give her a progress update if a step takes more than a couple of minutes.
+- **The cloud chat has a 30 MB limit both ways.** Keep the top-quality master, and send her a two-pass copy under 30 MB (bitrate ≈ 27 MB × 8 / seconds, minus 160k for audio).
+- **Burned-in captions/titles from another app:** they can't be removed. Cover them with soft frosted dark bands (a blurred, darkened copy plus a feathered mask) and put her branded text on top. Read the old captions with `tesseract` (2 fps, threshold for white text, `OMP_THREAD_LIMIT=1`) to get her exact words when Whisper isn't available. Flag any auto-caption words that look wrong instead of copying them.
+- **Hide jump cuts** by alternating 100% and 108% zoom between kept segments.
+
 ## Rule 6: Format and quality
 - **Reels / TikTok / Shorts:** vertical **9:16, 1080×1920**. Reframe wide footage by keeping her face centered, never by squashing.
 - **YouTube:** wide **16:9, 1920×1080** (or match a 4K source at 3840×2160).
