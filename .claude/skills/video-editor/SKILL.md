@@ -58,13 +58,46 @@ Check in this order:
 - **End card for "Follow":** freeze the last frame, blur and darken it, then show "Follow" in gold Playfair italic, "for more" in DM Sans, a gold rule, and "GRACE AKINYI" in small gold text. Fade the audio out under it.
 - **Without Whisper:** if transcription is blocked, ask Grace to type her exact words and time each phrase from the gaps in her speech (`silencedetect` plus loudness dips). Tell her the timing is approximate.
 
+## Viral playbook (from 7 reference videos Grace chose, 2026-10-15)
+Use these patterns whenever she wants "captions + graphics". Ask before going wild, because she's the director.
+
+**Hook (first second):**
+- Put big text on screen from frame 1, before she finishes the first sentence.
+- Hook types that worked: a bold claim ("I hired 4 employees this month… and they're not human"), a relatable "___ be like:" setup, and a contrarian truth ("The best relationships *don't* talk about the past").
+- For her topic: "Your phone is hiding 8 grams of cobalt", "Nobody talks about where your EV battery comes from".
+
+**Captions:**
+- Show 1 to 3 words at a time, changing about every 0.4 to 0.6 s, so the screen always moves even when the shot doesn't.
+- Mix two fonts. Plain words in clean bold sans (DM Sans). One key word per beat in big serif italic (Playfair Display italic), often in a cream or gold tint. This is exactly Grace's brand pairing, so lean into it.
+- Most references use no box, just white text with a soft shadow. Use a box only on busy backgrounds.
+- An optional persistent "topic label" in a small white or cream rounded box at the top (e.g. "Dating a man in 2026 be like:") keeps scrollers oriented.
+
+**Creativity (one every 3 to 6 s):**
+- Cutaways and B-roll that show what she's talking about: a photo pop-in when she names a person or product, a screenshot or website behind her (green-screen style), a meme or stick-figure insert for the punchline.
+- UI-style "cards" sliding in. Use her colours: a cream card, gold accent, near-black text.
+- Strikethrough text for "stop doing X, do Y".
+- Small emoji or icons next to key words, used sparingly.
+- Props she can hold on camera work as visual anchors.
+- Podcast clips: cut to the listener's reaction, and add a boxed headline label naming the story ("Grace explains why…").
+
+**Pacing:** cut or punch in every 2 to 7 s. Add a 105 to 110% punch-in zoom on the key line when there's no second angle. Remove every pause (Rule 3).
+
+**Colour grade:** none of the references are heavily graded. All are low saturation (natural, slightly muted skin), warm-neutral white balance, and soft contrast. Two looks:
+- **Bright and airy** (daylight, cream walls, the "creator at home" look): lift exposure slightly, warm a touch, and pull saturation down about 10%. `eq=saturation=0.9:gamma=1.05,colorbalance=rs=.03:bs=-.03`
+- **Moody cinematic** (podcast or interview): darker frame, deep but not crushed blacks, warm practical lights glowing in the background. `curves=preset=medium_contrast,eq=saturation=0.85:brightness=-0.04,colorbalance=rh=.04:bh=-.04,vignette=PI/5`
+- Grace's gold-cream brand fits both. Never push orange skin or neon saturation.
+
+**Ending / CTA:** the strongest references end with a **comment-keyword call to action** ("Comment JAM", "comment FILM") that people answer and the algorithm rewards. For Grace: "Comment MINERALS and I'll send you the list". Follow-CTAs are weaker, so suggest the comment version when she picks "Follow".
+
+**Sound:** voice loud and clear (around -14 LUFS). If there's music, keep it quiet under the voice.
+
 ## Rule 6: Format and quality
 - **Reels / TikTok / Shorts:** vertical **9:16, 1080×1920**. Reframe wide footage by keeping her face centered, never by squashing.
 - **YouTube:** wide **16:9, 1920×1080** (or match a 4K source at 3840×2160).
 - **Always export at the highest quality:** H.264 `libx264 -preset slow -crf 16 -pix_fmt yuv420p -profile:v high`, audio AAC 320k 48 kHz, `-movflags +faststart`. Keep the source frame rate. Never upscale beyond the source unless a platform needs it.
 
 ## Rule 7: Level voices separately
-If a video has an AI voice and her real voice, find each voice's segments (from the transcript or the clip layout), loudness-normalize each separately to the **same target** (about -16 LUFS for social, `loudnorm=I=-16:TP=-1.5:LRA=11`), then mix. Her voice must never sound quieter than the AI voice. Check the result with `ebur128`.
+If a video has an AI voice and her real voice, find each voice's segments (from the transcript or the clip layout), loudness-normalize each separately to the **same target** (about -14 LUFS for social (her reference videos sit at -10 to -15), `loudnorm=I=-14:TP=-1:LRA=9`), then mix. Her voice must never sound quieter than the AI voice. Check the result with `ebur128`.
 
 ## Rule 8: Dark or grainy footage
 Measure brightness (`signalstats` YAVG; under ~60 of 255 is dark). Fix gently with `eq` (brightness, gamma, contrast), `curves`, and denoising (`hqdn3d` or `nlmeans`). Then **tell her honestly** what you fixed and how good it is now. If it's still too dark or noisy, or faces look smeared after denoising, **say she should reshoot** and give one tip (face a window, add a light in front, don't sit with a window behind her).
